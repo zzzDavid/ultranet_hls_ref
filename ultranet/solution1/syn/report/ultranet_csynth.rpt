@@ -1,0 +1,169 @@
+
+
+================================================================
+== Vivado HLS Report for 'ultranet'
+================================================================
+* Date:           Mon Sep  6 00:45:22 2021
+
+* Version:        2019.2.1 (Build 2724168 on Thu Dec 05 05:19:09 MST 2019)
+* Project:        ultranet
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 4.328 ns |   0.62 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+-----------+--------+---------+---------+
+    |  Latency (cycles) |  Latency (absolute)  |     Interval     | Pipeline|
+    |   min   |   max   |    min   |    max    |   min  |   max   |   Type  |
+    +---------+---------+----------+-----------+--------+---------+---------+
+    |   463067|  2255390| 2.315 ms | 11.277 ms |  463067|  2255390|   none  |
+    +---------+---------+----------+-----------+--------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        +-----------------------+------------+---------+---------+----------+-----------+--------+---------+----------+
+        |                       |            |  Latency (cycles) |  Latency (absolute)  |     Interval     | Pipeline |
+        |        Instance       |   Module   |   min   |   max   |    min   |    max    |   min  |   max   |   Type   |
+        +-----------------------+------------+---------+---------+----------+-----------+--------+---------+----------+
+        |grp_do_compute_fu_250  |do_compute  |   463064|  2255387| 2.315 ms | 11.277 ms |  463043|  2050563| dataflow |
+        +-----------------------+------------+---------+---------+----------+-----------+--------+---------+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+-----+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++---------------------+---------+-------+---------+---------+-----+
+|DSP                  |        -|      -|        -|        -|    -|
+|Expression           |        -|      -|        0|        6|    -|
+|FIFO                 |        -|      -|        -|        -|    -|
+|Instance             |      377|    508|    39570|    60197|    0|
+|Memory               |        -|      -|        -|        -|    -|
+|Multiplexer          |        -|      -|        -|       36|    -|
+|Register             |        -|      -|       39|        -|    -|
++---------------------+---------+-------+---------+---------+-----+
+|Total                |      377|    508|    39609|    60239|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available SLR        |     1344|   3008|   869120|   434560|  320|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization SLR (%)  |       28|     16|        4|       13|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available            |     4032|   9024|  2607360|  1303680|  960|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization (%)      |        9|      5|        1|        4|    0|
++---------------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +--------------------------+------------------------+---------+-------+-------+-------+-----+
+    |         Instance         |         Module         | BRAM_18K| DSP48E|   FF  |  LUT  | URAM|
+    +--------------------------+------------------------+---------+-------+-------+-------+-----+
+    |grp_do_compute_fu_250     |do_compute              |      377|    508|  39496|  60093|    0|
+    |ultranet_control_s_axi_U  |ultranet_control_s_axi  |        0|      0|     74|    104|    0|
+    +--------------------------+------------------------+---------+-------+-------+-------+-----+
+    |Total                     |                        |      377|    508|  39570|  60197|    0|
+    +--------------------------+------------------------+---------+-------+-------+-------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +----------------------------------------+----------+-------+---+----+------------+------------+
+    |              Variable Name             | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +----------------------------------------+----------+-------+---+----+------------+------------+
+    |grp_do_compute_fu_250_out_r_TREADY      |    and   |      0|  0|   2|           1|           1|
+    |ap_sync_grp_do_compute_fu_250_ap_done   |    or    |      0|  0|   2|           1|           1|
+    |ap_sync_grp_do_compute_fu_250_ap_ready  |    or    |      0|  0|   2|           1|           1|
+    +----------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                   |          |      0|  0|   6|           3|           3|
+    +----------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------+----+-----------+-----+-----------+
+    |       Name      | LUT| Input Size| Bits| Total Bits|
+    +-----------------+----+-----------+-----+-----------+
+    |ap_NS_fsm        |  27|          5|    1|          5|
+    |in_r_TREADY_int  |   9|          2|    1|          2|
+    +-----------------+----+-----------+-----+-----------+
+    |Total            |  36|          7|    2|          7|
+    +-----------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +--------------------------------------------+----+----+-----+-----------+
+    |                    Name                    | FF | LUT| Bits| Const Bits|
+    +--------------------------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                                   |   4|   0|    4|          0|
+    |ap_sync_reg_grp_do_compute_fu_250_ap_done   |   1|   0|    1|          0|
+    |ap_sync_reg_grp_do_compute_fu_250_ap_ready  |   1|   0|    1|          0|
+    |grp_do_compute_fu_250_ap_start_reg          |   1|   0|    1|          0|
+    |reps_read_reg_472                           |  32|   0|   32|          0|
+    +--------------------------------------------+----+----+-----+-----------+
+    |Total                                       |  39|   0|   39|          0|
+    +--------------------------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-----------------------+-----+-----+------------+--------------+--------------+
+|       RTL Ports       | Dir | Bits|  Protocol  | Source Object|    C Type    |
++-----------------------+-----+-----+------------+--------------+--------------+
+|s_axi_control_AWVALID  |  in |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_AWREADY  | out |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_AWADDR   |  in |    5|    s_axi   |    control   |    scalar    |
+|s_axi_control_WVALID   |  in |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_WREADY   | out |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_WDATA    |  in |   32|    s_axi   |    control   |    scalar    |
+|s_axi_control_WSTRB    |  in |    4|    s_axi   |    control   |    scalar    |
+|s_axi_control_ARVALID  |  in |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_ARREADY  | out |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_ARADDR   |  in |    5|    s_axi   |    control   |    scalar    |
+|s_axi_control_RVALID   | out |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_RREADY   |  in |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_RDATA    | out |   32|    s_axi   |    control   |    scalar    |
+|s_axi_control_RRESP    | out |    2|    s_axi   |    control   |    scalar    |
+|s_axi_control_BVALID   | out |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_BREADY   |  in |    1|    s_axi   |    control   |    scalar    |
+|s_axi_control_BRESP    | out |    2|    s_axi   |    control   |    scalar    |
+|ap_clk                 |  in |    1| ap_ctrl_hs |   ultranet   | return value |
+|ap_rst_n               |  in |    1| ap_ctrl_hs |   ultranet   | return value |
+|interrupt              | out |    1| ap_ctrl_hs |   ultranet   | return value |
+|in_r_TDATA             |  in |   64|    axis    |  in_V_data_V |    pointer   |
+|in_r_TVALID            |  in |    1|    axis    |  in_V_keep_V |    pointer   |
+|in_r_TREADY            | out |    1|    axis    |  in_V_keep_V |    pointer   |
+|in_r_TKEEP             |  in |    8|    axis    |  in_V_keep_V |    pointer   |
+|in_r_TLAST             |  in |    1|    axis    |  in_V_last_V |    pointer   |
+|out_r_TDATA            | out |   64|    axis    | out_V_data_V |    pointer   |
+|out_r_TVALID           | out |    1|    axis    | out_V_keep_V |    pointer   |
+|out_r_TREADY           |  in |    1|    axis    | out_V_keep_V |    pointer   |
+|out_r_TKEEP            | out |    8|    axis    | out_V_keep_V |    pointer   |
+|out_r_TLAST            | out |    1|    axis    | out_V_last_V |    pointer   |
++-----------------------+-----+-----+------------+--------------+--------------+
+

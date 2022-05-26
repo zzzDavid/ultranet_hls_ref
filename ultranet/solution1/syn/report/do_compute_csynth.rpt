@@ -1,0 +1,215 @@
+
+
+================================================================
+== Vivado HLS Report for 'do_compute'
+================================================================
+* Date:           Mon Sep  6 00:45:18 2021
+
+* Version:        2019.2.1 (Build 2724168 on Thu Dec 05 05:19:09 MST 2019)
+* Project:        ultranet
+* Solution:       solution1
+* Product family: virtexuplus
+* Target device:  xcu280-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  | 5.00 ns | 4.328 ns |   0.62 ns  |
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+-----------+--------+---------+----------+
+    |  Latency (cycles) |  Latency (absolute)  |     Interval     | Pipeline |
+    |   min   |   max   |    min   |    max    |   min  |   max   |   Type   |
+    +---------+---------+----------+-----------+--------+---------+----------+
+    |   463064|  2255387| 2.315 ms | 11.277 ms |  463043|  2050563| dataflow |
+    +---------+---------+----------+-----------+--------+---------+----------+
+
+    + Detail: 
+        * Instance: 
+        +----------------------------+-------------------------+---------+---------+----------+-----------+--------+---------+----------+
+        |                            |                         |  Latency (cycles) |  Latency (absolute)  |     Interval     | Pipeline |
+        |          Instance          |          Module         |   min   |   max   |    min   |    max    |   min  |   max   |   Type   |
+        +----------------------------+-------------------------+---------+---------+----------+-----------+--------+---------+----------+
+        |conv3x3_bn_act_U0           |conv3x3_bn_act           |    57619|   527361| 0.288 ms |  2.637 ms |   57611|   514563| dataflow |
+        |conv3x3_bn_act_2_U0         |conv3x3_bn_act_2         |   230641|  2255361| 1.153 ms | 11.277 ms |  206731|  2050563| dataflow |
+        |conv3x3_bn_act_5_U0         |conv3x3_bn_act_5         |    64241|  1077761| 0.321 ms |  5.389 ms |   57611|  1026563| dataflow |
+        |conv3x3_bn_act_1_U0         |conv3x3_bn_act_1         |    57619|   261761| 0.288 ms |  1.309 ms |   57611|   258563| dataflow |
+        |conv3x3_bn_act_3_U0         |conv3x3_bn_act_3         |    57617|   230416| 0.288 ms |  1.152 ms |   57609|   230409| dataflow |
+        |conv3x3_bn_act432_U0        |conv3x3_bn_act432        |    57617|   230416| 0.288 ms |  1.152 ms |   57609|   230409| dataflow |
+        |conv3x3_bn_act433_U0        |conv3x3_bn_act433        |    57617|   230416| 0.288 ms |  1.152 ms |   57609|   230409| dataflow |
+        |conv3x3_bn_act_4_U0         |conv3x3_bn_act_4         |    57617|   230416| 0.288 ms |  1.152 ms |   57609|   230409| dataflow |
+        |resize_batch_U0             |resize_batch             |   463042|   463042| 2.315 ms |  2.315 ms |  463042|   463042|   none   |
+        |max_pool2d_U0               |max_pool2d               |    57606|   230406| 0.288 ms |  1.152 ms |   57604|   230404| dataflow |
+        |max_pool2d_1_U0             |max_pool2d_1             |    57606|   230406| 0.288 ms |  1.152 ms |   57604|   230404| dataflow |
+        |max_pool2d_3_U0             |max_pool2d_3             |    57606|   308801| 0.288 ms |  1.544 ms |   57604|   308802| dataflow |
+        |max_pool2d_2_U0             |max_pool2d_2             |    57606|   616001| 0.288 ms |  3.080 ms |   57604|   616002| dataflow |
+        |conv1x1_U0                  |conv1x1                  |    57608|   230408| 0.288 ms |  1.152 ms |   57608|   230408|   none   |
+        |StreamingDataWidthCo_10_U0  |StreamingDataWidthCo_10  |       23|      643| 0.115 us |  3.215 us |      23|      643|   none   |
+        |StreamingDataWidthCo_16_U0  |StreamingDataWidthCo_16  |       23|      643| 0.115 us |  3.215 us |      23|      643|   none   |
+        |StreamingDataWidthCo_6_U0   |StreamingDataWidthCo_6   |       23|      643| 0.115 us |  3.215 us |      23|      643|   none   |
+        |ExtractPixels_U0            |ExtractPixels            |       22|      642| 0.110 us |  3.210 us |      22|      642|   none   |
+        |AddLast_14400u_U0           |AddLast_14400u_s         |       22|      642| 0.110 us |  3.210 us |      22|      642|   none   |
+        +----------------------------+-------------------------+---------+---------+----------+-----------+--------+---------+----------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++---------------------+---------+-------+---------+---------+-----+
+|         Name        | BRAM_18K| DSP48E|    FF   |   LUT   | URAM|
++---------------------+---------+-------+---------+---------+-----+
+|DSP                  |        -|      -|        -|        -|    -|
+|Expression           |        -|      -|        0|        2|    -|
+|FIFO                 |      165|      -|     3228|     3790|    -|
+|Instance             |      212|    508|    36268|    56301|    0|
+|Memory               |        -|      -|        -|        -|    -|
+|Multiplexer          |        -|      -|        -|        -|    -|
+|Register             |        -|      -|        -|        -|    -|
++---------------------+---------+-------+---------+---------+-----+
+|Total                |      377|    508|    39496|    60093|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available SLR        |     1344|   3008|   869120|   434560|  320|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization SLR (%)  |       28|     16|        4|       13|    0|
++---------------------+---------+-------+---------+---------+-----+
+|Available            |     4032|   9024|  2607360|  1303680|  960|
++---------------------+---------+-------+---------+---------+-----+
+|Utilization (%)      |        9|      5|        1|        4|    0|
++---------------------+---------+-------+---------+---------+-----+
+
++ Detail: 
+    * Instance: 
+    +----------------------------+-------------------------+---------+-------+------+------+-----+
+    |          Instance          |          Module         | BRAM_18K| DSP48E|  FF  |  LUT | URAM|
+    +----------------------------+-------------------------+---------+-------+------+------+-----+
+    |AddLast_14400u_U0           |AddLast_14400u_s         |        0|      2|    94|   193|    0|
+    |ExtractPixels_U0            |ExtractPixels            |        0|      2|   129|   174|    0|
+    |StreamingDataWidthCo_10_U0  |StreamingDataWidthCo_10  |        0|      2|   354|   326|    0|
+    |StreamingDataWidthCo_16_U0  |StreamingDataWidthCo_16  |        0|      2|   296|   326|    0|
+    |StreamingDataWidthCo_6_U0   |StreamingDataWidthCo_6   |        0|      2|   259|   257|    0|
+    |conv1x1_U0                  |conv1x1                  |        3|     12|   719|   893|    0|
+    |conv3x3_bn_act_U0           |conv3x3_bn_act           |       22|    106|  5699|  6430|    0|
+    |conv3x3_bn_act432_U0        |conv3x3_bn_act432        |       23|     24|  2630|  4213|    0|
+    |conv3x3_bn_act433_U0        |conv3x3_bn_act433        |       23|     24|  2631|  4214|    0|
+    |conv3x3_bn_act_1_U0         |conv3x3_bn_act_1         |       26|     58|  4160|  5218|    0|
+    |conv3x3_bn_act_2_U0         |conv3x3_bn_act_2         |        4|     74|  4048|  7052|    0|
+    |conv3x3_bn_act_3_U0         |conv3x3_bn_act_3         |       23|     24|  2644|  4217|    0|
+    |conv3x3_bn_act_4_U0         |conv3x3_bn_act_4         |       23|     24|  2631|  4214|    0|
+    |conv3x3_bn_act_5_U0         |conv3x3_bn_act_5         |       22|    106|  5418|  6167|    0|
+    |max_pool2d_U0               |max_pool2d               |        8|      2|   818|  2741|    0|
+    |max_pool2d_1_U0             |max_pool2d_1             |        8|      2|   818|  2737|    0|
+    |max_pool2d_2_U0             |max_pool2d_2             |        7|      2|   626|  1931|    0|
+    |max_pool2d_3_U0             |max_pool2d_3             |        8|      2|   690|  2201|    0|
+    |resize_batch_U0             |resize_batch             |       12|     38|  1604|  2797|    0|
+    +----------------------------+-------------------------+---------+-------+------+------+-----+
+    |Total                       |                         |      212|    508| 36268| 56301|    0|
+    +----------------------------+-------------------------+---------+-------+------+------+-----+
+
+    * DSP48E: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-------------------------+---------+-----+----+-----+------+-----+---------+
+    |           Name          | BRAM_18K|  FF | LUT| URAM| Depth| Bits| Size:D*B|
+    +-------------------------+---------+-----+----+-----+------+-----+---------+
+    |conv_0_out_V_V_U         |        4|   85|   0|    -|   128|   64|     8192|
+    |conv_1_out_V_V_U         |        8|  150|   0|    -|   128|  128|    16384|
+    |conv_2_out_V_V_U         |       15|  279|   0|    -|   128|  256|    32768|
+    |conv_3_out_V_V_U         |       15|  279|   0|    -|   128|  256|    32768|
+    |conv_4_out_V_V_U         |       15|  279|   0|    -|   128|  256|    32768|
+    |conv_5_out_V_V_U         |       15|  279|   0|    -|   128|  256|    32768|
+    |conv_6_out_V_V_U         |       15|  279|   0|    -|   128|  256|    32768|
+    |conv_7_out_V_V_U         |       15|  279|   0|    -|   128|  256|    32768|
+    |conv_8_in_V_V_U          |        2|   51|   0|    -|    64|   32|     2048|
+    |conv_8_out_V_V_U         |        4|   83|   0|    -|    64|   64|     4096|
+    |in_stream0_V_V_U         |       11|  208|   0|    -|    16|  192|     3072|
+    |in_stream1_V_V_U         |        0|    7|   0|    -|    16|   24|      384|
+    |in_stream2_V_V_U         |        0|    7|   0|    -|    16|   24|      384|
+    |in_stream_extract_V_s_U  |        4|   80|   0|    -|    16|   64|     1024|
+    |pool_0_out_V_V_U         |        4|   85|   0|    -|   128|   64|     8192|
+    |pool_1_out_V_V_U         |        8|  150|   0|    -|   128|  128|    16384|
+    |pool_2_out_V_V_U         |       15|  279|   0|    -|   128|  256|    32768|
+    |pool_3_out_V_V_U         |       15|  279|   0|    -|   128|  256|    32768|
+    |reps_c10_U               |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c11_U               |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c12_U               |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c13_U               |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c14_U               |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c15_U               |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c16_U               |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c17_U               |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c1_U                |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c2_U                |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c3_U                |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c4_U                |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c5_U                |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c6_U                |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c7_U                |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c8_U                |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c9_U                |        0|    5|   0|    -|     2|   32|       64|
+    |reps_c_U                 |        0|    5|   0|    -|     2|   32|       64|
+    +-------------------------+---------+-----+----+-----+------+-----+---------+
+    |Total                    |      165| 3228|   0|    0|  1764| 3408|   323456|
+    +-------------------------+---------+-----+----+-----+------+-----+---------+
+
+    * Expression: 
+    +--------------+----------+-------+---+----+------------+------------+
+    | Variable Name| Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------+----------+-------+---+----+------------+------------+
+    |ap_idle       |    and   |      0|  0|   2|           1|           1|
+    +--------------+----------+-------+---+----+------------+------------+
+    |Total         |          |      0|  0|   2|           1|           1|
+    +--------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------+-----+-----+------------+--------------+--------------+
+|   RTL Ports  | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------+-----+-----+------------+--------------+--------------+
+|in_r_TDATA    |  in |   64|    axis    |  in_V_data_V |    pointer   |
+|in_r_TLAST    |  in |    1|    axis    |  in_V_last_V |    pointer   |
+|in_r_TKEEP    |  in |    8|    axis    |  in_V_keep_V |    pointer   |
+|in_r_TVALID   |  in |    1|    axis    |  in_V_keep_V |    pointer   |
+|in_r_TREADY   | out |    1|    axis    |  in_V_keep_V |    pointer   |
+|out_r_TDATA   | out |   64|    axis    | out_V_data_V |    pointer   |
+|out_r_TLAST   | out |    1|    axis    | out_V_last_V |    pointer   |
+|out_r_TKEEP   | out |    8|    axis    | out_V_keep_V |    pointer   |
+|out_r_TVALID  | out |    1|    axis    | out_V_keep_V |    pointer   |
+|out_r_TREADY  |  in |    1|    axis    | out_V_keep_V |    pointer   |
+|reps          |  in |   32|   ap_none  |     reps     |    scalar    |
+|reps_ap_vld   |  in |    1|   ap_none  |     reps     |    scalar    |
+|ap_clk        |  in |    1| ap_ctrl_hs |  do_compute  | return value |
+|ap_rst        |  in |    1| ap_ctrl_hs |  do_compute  | return value |
+|ap_start      |  in |    1| ap_ctrl_hs |  do_compute  | return value |
+|ap_done       | out |    1| ap_ctrl_hs |  do_compute  | return value |
+|ap_ready      | out |    1| ap_ctrl_hs |  do_compute  | return value |
+|ap_idle       | out |    1| ap_ctrl_hs |  do_compute  | return value |
+|ap_continue   |  in |    1| ap_ctrl_hs |  do_compute  | return value |
++--------------+-----+-----+------------+--------------+--------------+
+
